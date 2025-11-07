@@ -10,6 +10,18 @@ export function main(){
     conta.visualizar
     conta.depositar(5000);
     conta.visualizar();
+    const segundaConta:Conta = new Conta(2,124,2,"Marcos",2000);
+    segundaConta.visualizar();
+    segundaConta.sacar(1000);
+    segundaConta.visualizar
+    segundaConta.depositar(25000);
+    segundaConta.visualizar();
+    const terceiraConta:Conta = new Conta(3,125,1,"Lucas",3000);
+    terceiraConta.visualizar();
+    terceiraConta.sacar(1000);
+    terceiraConta.visualizar
+    terceiraConta.depositar(5000);
+    terceiraConta.visualizar();
     while(true){
         console.log(colors.bg.black,colors.fg.yellow,
                     "*************************************************************");
