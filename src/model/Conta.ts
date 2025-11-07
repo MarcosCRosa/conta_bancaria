@@ -47,10 +47,10 @@ public set saldo(saldo:number){
 
 public sacar (valor:number):boolean{
  if(this._saldo<valor){
-    console.log("Saldo indisponivel!");
+    console.log("\nSaldo Insuficiente!");
     return false;
  }
- this._saldo =this._saldo - valor;
+ this._saldo = this._saldo - valor;
  return true;
 }
 
@@ -73,7 +73,7 @@ public visualizar():void{
     console.log("Numero da conta:"+this._numero);
     console.log("Agência:"+this._agencia);
     console.log("Tipo da Conta:"+tipo);
-    console.log("Titular:"+this.titular);
+    console.log("Titular:"+this._titular);
     console.log("Saldo:"+this._saldo.toFixed(2));
 }
 
