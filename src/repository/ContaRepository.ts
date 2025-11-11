@@ -6,5 +6,7 @@ export interface ContaRepository{
  atualizar(conta:Conta):void;
  deletar(numero:number):void;
 
- 
+ sacar(numero:number,valor:number):void;
+ depositar(numero:number,valor:number):void;
+ transferir(numeroOrigim:number,numeroDestino:number,valor:number):void;
 }
