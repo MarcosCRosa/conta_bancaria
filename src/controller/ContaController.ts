@@ -3,6 +3,7 @@ import { Conta } from "../model/Conta";
 import { ContaRepository } from "../repository/ContaRepository";
 import { colors } from "../util/Colors";
 import { off } from "process";
+import { read } from "fs";
 
 export class ContaController implements ContaRepository{
     
@@ -25,7 +26,14 @@ export class ContaController implements ContaRepository{
        console.log(colors.fg.green,"\nA Conta número:"+conta.numero+"Foi criada com sucesso!",colors.reset);  
     }
     atualizar(conta: Conta): void {
-        throw new Error("Method not implemented.");
+        let buscaConta = this.buscarNoArray(conta.numero);
+
+        if(buscaConta != null){
+            this.listaContas[this.listaContas.indexOf(buscaConta)] = conta;
+            console.log(colors.fg.green,"\nA Conta numero:"+conta.numero+"foi atualizada com sucesso!",colors.reset);
+        } else 
+            console.log(colors.fg.red,"\nA Conta numero:"+conta.numero+"não foi encontrada!",colors.reset);
+            
     }
     deletar(numero: number): void {
         throw new Error("Method not implemented.");
