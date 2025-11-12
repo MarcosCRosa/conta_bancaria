@@ -2,13 +2,18 @@ import { log } from "console";
 import { Conta } from "../model/Conta";
 import { ContaRepository } from "../repository/ContaRepository";
 import { colors } from "../util/Colors";
+import { off } from "process";
 
 export class ContaController implements ContaRepository{
     
     private listaContas: Array<Conta> = new Array<Conta>();
     numero:number=0
     procurarPorNumero(numero: number): void {
-        throw new Error("Method not implemented.");
+       let buscaConta = this.buscarNoArray(numero);
+       if(buscaConta != null){
+        buscaConta.visualizar();
+       }else
+         console.log(colors.fg.red,"\nA conta numero:"+numero+"Não foi encontrada!",colors.reset);
     }
     listarTodas(): void {
      for(let conta of this.listaContas){
