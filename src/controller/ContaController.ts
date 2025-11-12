@@ -38,5 +38,13 @@ export class ContaController implements ContaRepository{
     public gerarNumero():number{
         return ++ this.numero;
     }
+
+    public buscarNoArray(numero:number):Conta | null {
+     for (let conta of this.listaContas){
+        if(conta.numero === numero)
+            return conta;
+     }        
+        return null;
+    }
     
 }
