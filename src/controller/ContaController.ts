@@ -4,11 +4,14 @@ import { ContaRepository } from "../repository/ContaRepository";
 export class ContaController implements ContaRepository{
     
     private listaContas: Array<Conta> = new Array<Conta>();
+    numero:number=0
     procurarPorNumero(numero: number): void {
         throw new Error("Method not implemented.");
     }
     listarTodas(): void {
-        throw new Error("Method not implemented.");
+     for(let conta of this.listaContas){
+        conta.visualizar();
+     }   
     }
     cadastrar(conta: Conta): void {
         throw new Error("Method not implemented.");
