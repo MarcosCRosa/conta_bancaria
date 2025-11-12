@@ -105,6 +105,40 @@ contas.cadastrar(cp2);
             case 4:
                  console.log(colors.fg.whitestrong,
                     "\n\nAtualizar dados da Conta\n\n",colors.reset);
+                    console.log("Digite o numero da conta:");
+                    numero = readlinesync.questionInt("");
+                    
+                    let conta = contas.buscarNoArray(numero);
+
+                    if(conta!=null){
+                        console.log("Digite o Número da agencia:");
+                        agencia = readlinesync.questionInt("");
+
+                        console.log("Digite o Nome do titular:");
+                        titular = readlinesync.question("");
+
+                        tipo = conta.tipo;
+
+                        console.log("\nDigite o Saldo da conta (R$)");
+                        saldo = readlinesync.questionFloat(""); 
+                    switch(tipo){
+                        case 1:
+                        console.log("Digite o Limite da Conta (R$):");
+                        limite = readlinesync.questionInt("");
+                        contas.atualizar(
+                        new ContaCorrente(numero,agencia,tipo,titular,saldo,limite)
+                        )
+                        break;
+                        case 2:
+                            console.log("Digite o Dia do aniversario da Conta Poupança:");
+                            aniversario = readlinesync.questionInt();
+                            contas.atualizar(new ContaPoupanca(numero,agencia,tipo,titular,saldo,aniversario));
+                        break;
+                    
+                    }             
+                    } else {
+                        console.log(colors.fg.red,"\nA Conta numero:"+numero+"não foi encontrada!",colors.reset);    
+                    }
                     KeyPress();
             break;
             case 5:
