@@ -6,10 +6,20 @@ import { ContaPoupanca } from "./model/ContaPoupanca";
 import { ContaController } from "./controller/ContaController";
 
 export function main(){
-    let opcao:number,agencia,tipo,saldo,limite,aniversario:number;
+    let opcao,numero,agencia,tipo,saldo,limite,aniversario:number;
     let titular:string;
     let contas:ContaController = new ContaController();
     const tiposContas = ['Conta Corrente','Conta Poupanca'];
+    console.log("\nContas criadas para teste\n");
+let cc1: ContaCorrente = new ContaCorrente(contas.gerarNumero(),123,1,"joao da silva",1000,100.0);
+contas.cadastrar(cc1);
+let cc2: ContaCorrente = new ContaCorrente(contas.gerarNumero(),124,1,"Maria da Silva",2000,100.0);
+contas.cadastrar(cc2);
+let cp1: ContaPoupanca = new ContaPoupanca(contas.gerarNumero(),125,2,"Mariana dos Santos",4000,12);
+contas.cadastrar(cp1);
+let cp2: ContaPoupanca = new ContaPoupanca(contas.gerarNumero(),123,2,"Juliana Ramos",8000,15);
+contas.cadastrar(cp2);
+    
 
 
     while(true){
@@ -79,15 +89,7 @@ export function main(){
             case 2:
                 console.log(colors.fg.whitestrong,
                     "\n\nListar todas as contas\n\n",colors.reset);
-                    console.log("\"nCriar Contas\n");
-                    let cc1: ContaCorrente = new ContaCorrente(contas.gerarNumero(),123,1,"joao da silva",1000,100.0);
-                    contas.cadastrar(cc1);
-                    let cc2: ContaCorrente = new ContaCorrente(contas.gerarNumero(),124,1,"Maria da Silva",2000,100.0);
-                    contas.cadastrar(cc2);
-                    let cp1: ContaPoupanca = new ContaPoupanca(contas.gerarNumero(),125,2,"Mariana dos Santos",4000,12);
-                    contas.cadastrar(cp1);
-                    let cp2: ContaPoupanca = new ContaPoupanca(contas.gerarNumero(),123,2,"Juliana Ramos",8000,15);
-                    contas.cadastrar(cp2);
+                    
                     
                     contas.listarTodas();
                     KeyPress();
@@ -95,6 +97,9 @@ export function main(){
             case 3:
                  console.log(colors.fg.whitestrong,
                     "\n\nConsultar dados da Conta - por número\n\n",colors.reset);
+                    console.log("Digite o numero da Conta:");
+                    numero = readlinesync.questionInt("");
+                    contas.procurarPorNumero(numero);
                     KeyPress();
             break;
             case 4:
