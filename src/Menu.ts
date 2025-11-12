@@ -3,10 +3,11 @@ import { colors } from "./util/Colors";
 import { Conta } from "./model/Conta";
 import { ContaCorrente } from "./model/ContaCorrente";
 import { ContaPoupanca } from "./model/ContaPoupanca";
+import { ContaController } from "./controller/ContaController";
 
 export function main(){
     let opcao:number;
-
+    let contas:ContaController = new ContaController();
     const contaCorrente:ContaCorrente = new ContaCorrente(2,123,1,"Mariana",15000,1000);
     contaCorrente.visualizar();
     contaCorrente.sacar(2000);
@@ -62,6 +63,7 @@ export function main(){
             case 2:
                 console.log(colors.fg.whitestrong,
                     "\n\nListar todas as contas\n\n",colors.reset);
+                    contas.listarTodas();
                     KeyPress();
             break;
             case 3:
