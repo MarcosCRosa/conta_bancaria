@@ -34,5 +34,9 @@ export class ContaController implements ContaRepository{
     transferir(numeroOrigim: number, numeroDestino: number, valor: number): void {
         throw new Error("Method not implemented.");
     }
+
+    public gerarNumero():number{
+        return ++ this.numero;
+    }
     
 }
