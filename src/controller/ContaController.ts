@@ -2,6 +2,8 @@ import { Conta } from "../model/Conta";
 import { ContaRepository } from "../repository/ContaRepository";
 
 export class ContaController implements ContaRepository{
+    
+    private listaContas: Array<Conta> = new Array<Conta>();
     procurarPorNumero(numero: number): void {
         throw new Error("Method not implemented.");
     }
