@@ -5,7 +5,7 @@ import { ContaPoupanca } from "./model/ContaPoupanca";
 import { ContaController } from "./controller/ContaController";
 
 export function main(){
-    let opcao,numero,agencia,tipo,saldo,limite,aniversario:number;
+    let opcao,numero,agencia,tipo,saldo,limite,aniversario,valor,numeroDestino:number;
     let titular:string;
     let contas:ContaController = new ContaController();
     const tiposContas = ['Conta Corrente','Conta Poupanca'];
@@ -153,8 +153,12 @@ contas.cadastrar(cp2);
             case 6:
                 console.log(colors.fg.whitestrong,
                     "\n\nSaque\n\n",colors.reset);
+                    console.log("Digite o numero da Conta destino:");
+                    numero = readlinesync.questionInt("")
+                    console.log("Digite o Valor para Saque (R$):");
+                    valor=readlinesync.questionFloat("");
+                    contas.sacar(numero,valor);
                     KeyPress();
-                    
             break;
             case 7:
                 console.log(colors.fg.whitestrong,
