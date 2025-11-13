@@ -175,6 +175,16 @@ contas.cadastrar(cp2);
             case 8:
                 console.log(colors.fg.whitestrong,
                     "\n\nTransferencia entre Contas\n\n",colors.reset);
+                console.log("Digite o numero da Conta de Origem:");
+                numero = readlinesync.questionInt("");
+
+                console.log("Digite o numero da Conta de Destino");
+                numeroDestino = readlinesync.questionInt("");
+
+                console.log("\nDigite o valor do Depósito (R$):");
+                valor = readlinesync.questionFloat("");
+
+                contas.transferir(numero,numeroDestino,valor);
             break;
             default:
                 console.log(colors.fg.whitestrong,
