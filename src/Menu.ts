@@ -1,6 +1,5 @@
 import readlinesync = require("readline-sync");
 import { colors } from "./util/Colors";
-import { Conta } from "./model/Conta";
 import { ContaCorrente } from "./model/ContaCorrente";
 import { ContaPoupanca } from "./model/ContaPoupanca";
 import { ContaController } from "./controller/ContaController";
@@ -54,22 +53,24 @@ contas.cadastrar(cp2);
             process.exit(0);
         }
         switch(opcao){
+            
             case 1:
+                
                 console.log(colors.fg.whitestrong,
                     "\n\nCriar Conta\n\n",colors.reset);
                     console.log("Digite o Número da agencia");
                     agencia = readlinesync.questionInt("");
-
+                
                     console.log("Digite o Nome do Titular da conta:");
                     titular = readlinesync.question("");
-
+                    
                     console.log("\nDigite o tipo da Conta:");
                     tipo = readlinesync.keyInSelect(tiposContas,"",{cancel:false})+1;
 
                     console.log("\nDigite o Saldo da Conta (R$):");
                     saldo = readlinesync.questionInt("");
 
-                    
+                   
                  switch(tipo){
                     case 1:
                         console.log("Digite o limite da Conta(R$)");

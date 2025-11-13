@@ -2,8 +2,7 @@ import { log } from "console";
 import { Conta } from "../model/Conta";
 import { ContaRepository } from "../repository/ContaRepository";
 import { colors } from "../util/Colors";
-import { off } from "process";
-import { read } from "fs";
+
 
 export class ContaController implements ContaRepository{
     
